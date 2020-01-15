@@ -27,6 +27,19 @@ class ProjekcijaController extends AbstractController
             'projekcijas' => $projekcijas,
         ]);
     }
+    /**
+     * @Route("/odabir", name="projekcija_user", methods={"GET"})
+     */
+    public function indexx(): Response
+    {
+        $projekcijas = $this->getDoctrine()
+            ->getRepository(Projekcija::class)
+            ->findAll();
+
+        return $this->render('projekcija/indexx.html.twig', [
+            'projekcijas' => $projekcijas,
+        ]);
+    }
 
     /**
      * @Route("/new", name="projekcija_new", methods={"GET","POST"})

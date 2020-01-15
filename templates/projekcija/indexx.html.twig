@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Projekcija index{% endblock %}
+
+{% block body %}
+    <h1>Projekcija index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Vrijeme</th>
+                <th>BrojKarata</th>
+                <th>FilmoviIdFilm</th>
+                <th>DvoraneIdDvorana</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for projekcija in projekcijas %}
+            <tr>
+
+                <td>{{ projekcija.vrijeme ? projekcija.vrijeme|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ projekcija.brojKarata }}</td>
+                <td><a href="{{ path('projekcija_show', {'idProjekcija': projekcija.idProjekcija}) }}">{{ projekcija.filmoviIdFilm }}</a></td>
+                <td>{{ projekcija.dvoraneIdDvorana }}</td>
+                <td>
+                    <a href="{{ path('projekcija_show', {'idProjekcija': projekcija.idProjekcija}) }}">show</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}
