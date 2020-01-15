@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ProjekcijaKorisnik{% endblock %}
+
+{% block body %}
+    <h1>Create new ProjekcijaKorisnik</h1>
+
+    {{ include('projekcija_korisnik/_form.html.twig') }}
+
+    <a href="{{ path('projekcija_korisnik_index') }}">back to list</a>
+{% endblock %}

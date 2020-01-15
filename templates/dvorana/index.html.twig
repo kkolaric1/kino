@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dvorana index{% endblock %}
+
+{% block body %}
+    <h1>Dvorana index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdDvorana</th>
+                <th>BrojSjedala</th>
+                <th>Naziv</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for dvorana in dvoranas %}
+            <tr>
+                <td>{{ dvorana.idDvorana }}</td>
+                <td>{{ dvorana.brojSjedala }}</td>
+                <td>{{ dvorana.naziv }}</td>
+                <td>
+                    <a href="{{ path('dvorana_show', {'idDvorana': dvorana.idDvorana}) }}">show</a>
+                    <a href="{{ path('dvorana_edit', {'idDvorana': dvorana.idDvorana}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('dvorana_new') }}">Create new</a>
+{% endblock %}

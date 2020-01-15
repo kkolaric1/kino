@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProjekcijaKorisnik{% endblock %}
+
+{% block body %}
+    <h1>ProjekcijaKorisnik</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>ProjekcijeIdProjekcija</th>
+                <td>{{ projekcija_korisnik.projekcijeIdProjekcija }}</td>
+            </tr>
+            <tr>
+                <th>KorisnikIdKorisnik</th>
+                <td>{{ projekcija_korisnik.korisnikIdKorisnik }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('projekcija_korisnik_index') }}">back to list</a>
+
+    <a href="{{ path('projekcija_korisnik_edit', {'projekcijeIdProjekcija': projekcija_korisnik.projekcijeIdProjekcija}) }}">edit</a>
+
+    {{ include('projekcija_korisnik/_delete_form.html.twig') }}
+{% endblock %}

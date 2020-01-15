@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Uloga{% endblock %}
+
+{% block body %}
+    <h1>Uloga</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdUloga</th>
+                <td>{{ uloga.idUloga }}</td>
+            </tr>
+            <tr>
+                <th>Naziv</th>
+                <td>{{ uloga.naziv }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('uloga_index') }}">back to list</a>
+
+    <a href="{{ path('uloga_edit', {'idUloga': uloga.idUloga}) }}">edit</a>
+
+    {{ include('uloga/_delete_form.html.twig') }}
+{% endblock %}

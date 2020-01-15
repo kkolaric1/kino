@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Dvorana{% endblock %}
+
+{% block body %}
+    <h1>Create new Dvorana</h1>
+
+    {{ include('dvorana/_form.html.twig') }}
+
+    <a href="{{ path('dvorana_index') }}">back to list</a>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Uloga{% endblock %}
+
+{% block body %}
+    <h1>Create new Uloga</h1>
+
+    {{ include('uloga/_form.html.twig') }}
+
+    <a href="{{ path('uloga_index') }}">back to list</a>
+{% endblock %}

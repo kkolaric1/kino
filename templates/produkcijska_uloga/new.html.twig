@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ProdukcijskaUloga{% endblock %}
+
+{% block body %}
+    <h1>Create new ProdukcijskaUloga</h1>
+
+    {{ include('produkcijska_uloga/_form.html.twig') }}
+
+    <a href="{{ path('produkcijska_uloga_index') }}">back to list</a>
+{% endblock %}

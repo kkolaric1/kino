@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProjekcijaKorisnik index{% endblock %}
+
+{% block body %}
+    <h1>ProjekcijaKorisnik index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ProjekcijeIdProjekcija</th>
+                <th>KorisnikIdKorisnik</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for projekcija_korisnik in projekcija_korisniks %}
+            <tr>
+                <td>{{ projekcija_korisnik.projekcijeIdProjekcija }}</td>
+                <td>{{ projekcija_korisnik.korisnikIdKorisnik }}</td>
+                <td>
+                    <a href="{{ path('projekcija_korisnik_show', {'projekcijeIdProjekcija': projekcija_korisnik.projekcijeIdProjekcija}) }}">show</a>
+                    <a href="{{ path('projekcija_korisnik_edit', {'projekcijeIdProjekcija': projekcija_korisnik.projekcijeIdProjekcija}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('projekcija_korisnik_new') }}">Create new</a>
+{% endblock %}

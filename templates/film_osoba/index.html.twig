@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}FilmOsoba index{% endblock %}
+
+{% block body %}
+    <h1>FilmOsoba index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>FilmoviIdFilm</th>
+                <th>UlogaIdOsoba</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for film_osoba in film_osobas %}
+            <tr>
+                <td>{{ film_osoba.filmoviIdFilm }}</td>
+                <td>{{ film_osoba.ulogaIdOsoba }}</td>
+                <td>
+                    <a href="{{ path('film_osoba_show', {'filmoviIdFilm': film_osoba.filmoviIdFilm}) }}">show</a>
+                    <a href="{{ path('film_osoba_edit', {'filmoviIdFilm': film_osoba.filmoviIdFilm}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('film_osoba_new') }}">Create new</a>
+{% endblock %}

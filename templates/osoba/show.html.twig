@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Osoba{% endblock %}
+
+{% block body %}
+    <h1>Osoba</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>IdOsoba</th>
+                <td>{{ osoba.idOsoba }}</td>
+            </tr>
+            <tr>
+                <th>Ime</th>
+                <td>{{ osoba.ime }}</td>
+            </tr>
+            <tr>
+                <th>Prezime</th>
+                <td>{{ osoba.prezime }}</td>
+            </tr>
+            <tr>
+                <th>ProdukcijskaUlogaIdProdukcijskauloga</th>
+                <td>{{ osoba.produkcijskaUlogaIdProdukcijskauloga }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('osoba_index') }}">back to list</a>
+
+    <a href="{{ path('osoba_edit', {'idOsoba': osoba.idOsoba}) }}">edit</a>
+
+    {{ include('osoba/_delete_form.html.twig') }}
+{% endblock %}

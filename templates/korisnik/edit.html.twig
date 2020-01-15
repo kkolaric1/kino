@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Korisnik{% endblock %}
+
+{% block body %}
+    <h1>Edit Korisnik</h1>
+
+    {{ include('korisnik/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('korisnik_index') }}">back to list</a>
+
+    {{ include('korisnik/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ProdukcijskaUloga index{% endblock %}
+
+{% block body %}
+    <h1>ProdukcijskaUloga index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdProdukcijskauloga</th>
+                <th>Naziv</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produkcijska_uloga in produkcijska_ulogas %}
+            <tr>
+                <td>{{ produkcijska_uloga.idProdukcijskauloga }}</td>
+                <td>{{ produkcijska_uloga.naziv }}</td>
+                <td>
+                    <a href="{{ path('produkcijska_uloga_show', {'idProdukcijskauloga': produkcijska_uloga.idProdukcijskauloga}) }}">show</a>
+                    <a href="{{ path('produkcijska_uloga_edit', {'idProdukcijskauloga': produkcijska_uloga.idProdukcijskauloga}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('produkcijska_uloga_new') }}">Create new</a>
+{% endblock %}

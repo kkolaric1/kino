@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Uloga index{% endblock %}
+
+{% block body %}
+    <h1>Uloga index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdUloga</th>
+                <th>Naziv</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for uloga in ulogas %}
+            <tr>
+                <td>{{ uloga.idUloga }}</td>
+                <td>{{ uloga.naziv }}</td>
+                <td>
+                    <a href="{{ path('uloga_show', {'idUloga': uloga.idUloga}) }}">show</a>
+                    <a href="{{ path('uloga_edit', {'idUloga': uloga.idUloga}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('uloga_new') }}">Create new</a>
+{% endblock %}

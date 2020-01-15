@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Korisnik index{% endblock %}
+
+{% block body %}
+    <h1>Korisnik index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdKorisnik</th>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>UlogaIdUloga</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for korisnik in korisniks %}
+            <tr>
+                <td>{{ korisnik.idKorisnik }}</td>
+                <td>{{ korisnik.ime }}</td>
+                <td>{{ korisnik.prezime }}</td>
+                <td>{{ korisnik.ulogaIdUloga }}</td>
+                <td>
+                    <a href="{{ path('korisnik_show', {'idKorisnik': korisnik.idKorisnik}) }}">show</a>
+                    <a href="{{ path('korisnik_edit', {'idKorisnik': korisnik.idKorisnik}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('korisnik_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ProjekcijaKorisnik{% endblock %}
+
+{% block body %}
+    <h1>Edit ProjekcijaKorisnik</h1>
+
+    {{ include('projekcija_korisnik/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('projekcija_korisnik_index') }}">back to list</a>
+
+    {{ include('projekcija_korisnik/_delete_form.html.twig') }}
+{% endblock %}

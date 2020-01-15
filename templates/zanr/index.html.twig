@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Zanr index{% endblock %}
+
+{% block body %}
+    <h1>Zanr index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdZanr</th>
+                <th>Naziv</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for zanr in zanrs %}
+            <tr>
+                <td>{{ zanr.idZanr }}</td>
+                <td>{{ zanr.naziv }}</td>
+                <td>
+                    <a href="{{ path('zanr_show', {'idZanr': zanr.idZanr}) }}">show</a>
+                    <a href="{{ path('zanr_edit', {'idZanr': zanr.idZanr}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('zanr_new') }}">Create new</a>
+{% endblock %}
